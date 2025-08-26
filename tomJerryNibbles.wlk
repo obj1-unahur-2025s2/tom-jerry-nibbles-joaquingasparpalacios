@@ -20,8 +20,14 @@ object tom {
 
   method puedeCazarA(distancia) = energia - (distancia/2) > 0 
   method cazarA(raton, distancia) {
-    if (self.puedeCazarA(distancia))
-      self.comer(raton) //???????
+      self.correr(distancia)
+      self.comer(raton)
+  }
+  method cazarA_SiPuede(raton, distancia) {
+    if (self.puedeCazarA(distancia)){
+        self.cazarA(raton, distancia)
+    }
+      
   }
 }
 
@@ -38,4 +44,13 @@ object nibbles {
   method peso() = 35
 }
 
+//Parte 3
 // Inventar otro ratón
+
+object perez {
+  var peso = 10
+  method peso() = peso
+  method comerQuesos(cantidadDeQuesos) {
+    peso += cantidadDeQuesos*20
+  }
+}
